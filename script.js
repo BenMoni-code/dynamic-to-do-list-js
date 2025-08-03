@@ -20,17 +20,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Event listener for Enter key
-    taskInput.addEventListener('keypress', (event) => {
-        if (event.key === 'Enter') {
-            const taskText = taskInput.value.trim();
-            if (taskText !== '') {
-                addTask(taskText);
-                taskInput.value = '';
-            } else {
-                alert('Please enter a task.');
-            }
+    taskInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        const taskText = taskInput.value.trim();
+        if (taskText !== '') {
+            addTask(taskText);
+            taskInput.value = '';
+        } else {
+            alert('Please enter a task.');
         }
+    }
     });
+
 
     // Add a task to the DOM and optionally to localStorage
     function addTask(taskText, save = true) {
